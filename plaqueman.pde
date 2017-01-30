@@ -1,86 +1,76 @@
 class Plaqueman
 {
   PImage pacpic;
-  float plaquemanX;
-  float plaquemanY;
-  
-  float speed;
-  
-  boolean upPressed;
-  boolean downPressed;
-  boolean leftPressed;
-  boolean rightPressed;
-  
+  int radius, directionX, directionY;
+  float x, y, speed;
   Plaqueman()
   {
     pacpic=loadImage("pac.png");
-    
-    float plaquemanX = 250;
-    float plaquemanY = 250;
-    
-    float speed = 5;
-    
-    boolean upPressed = false;
-    boolean downPressed = false;
-    boolean leftPressed = false;
-    boolean rightPressed = false;
-  
+    radius = 10;
+    directionX = 1;
+    directionY = 0;
+    x = 20;
+    y = 20;
+    speed = 0.5;
+    //plaquemanX = 250;
+    //plaquemanY = 250;
+    //speed = 5;
   }//end plaqueman
-  
-  void moveMan()
+
+
+  void display() {
+    
+    x=x+speed*directionX;
+    y=y+speed*directionY; 
+    // check boundaries
+    if ((x>width-radius) || (x<radius))
+    {   
+      directionX=-directionX;
+    }
+    if ((y>height-radius) || (y<radius))
+    {   
+      directionY=-directionY;
+    } 
+    // draw
+
+    fill (color(222, 22, 22)); 
+    ellipse (x, y, radius, radius);    // body
+    fill (color(22, 82, 22)); 
+    ellipse (x-4, y-4, 2, 2);  // the eye
+    //image(pacpic, directionX, directionY);
+  }
+
+  void update()
   {
-     if (upPressed) {
-    plaquemanY -= speed;
-  }
-  if (downPressed) {
-    plaquemanY += speed;
-  }
-  if (leftPressed) {
-    plaquemanX -= speed;
-  }
-  if (rightPressed) {
-    plaquemanX += speed;
-  }
-
-  background(0);
-  image(pacpic, plaquemanX, plaquemanY);
-  //ellipse(plaquemanX, plaquemanY, 25, 25); 
-  
-  }
-  
-  void keyPressed(KeyEvent e) {
-  if (key == CODED) {
-    if (keyCode == UP) {
-      upPressed = true;
-    }
-    else if (keyCode == DOWN) {
-      downPressed = true;
-    }
-    else if (keyCode == LEFT) {
-      leftPressed = true;
-    }
-    else if (keyCode == RIGHT) {
-      rightPressed = true;
+    if (keyPressed) {
+      if (key == CODED)
+      {
+        if (keyCode == LEFT)
+        {
+          //if (directionX>0) { 
+          directionX=-1;
+          directionY=0;
+          //}
+        } else if (keyCode == RIGHT)
+        {
+          //if (directionX<0) {  
+          directionX=1;
+          directionY=0;
+          //}
+        } else if (keyCode == UP)
+        {
+          //if (directionY<0) {
+          directionY=-1;
+          directionX=0;
+          //}
+        } else if (keyCode == DOWN)
+        {
+          //if (directionY<0) { 
+          directionY=1;
+          directionX=0;
+          //}
+        }
+      }
     }
   }
-}
-
-void keyReleased(KeyEvent e) {
-  if (key == CODED) {
-    if (keyCode == UP) {
-      upPressed = false;
-    }
-    else if (keyCode == DOWN) {
-      downPressed = false;
-    }
-    else if (keyCode == LEFT) {
-      leftPressed = false;
-    }
-    else if (keyCode == RIGHT) {
-      rightPressed = false;
-    }
-  }
-}
-
-
 }//endclass
