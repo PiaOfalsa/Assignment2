@@ -32,10 +32,11 @@ class Plaqueman
       directionY=-directionY;
     } 
     // draw
-
-    fill (color(222, 22, 22)); 
+    noFill();
+   
+    //fill (color(222, 22, 22)); 
     ellipse (x, y, radius, radius);    // body
-    fill (color(22, 82, 22)); 
+    //fill (color(22, 82, 22)); 
     ellipse (x-4, y-4, 2, 2);  // the eye
     //image(pacpic, directionX, directionY);
   }

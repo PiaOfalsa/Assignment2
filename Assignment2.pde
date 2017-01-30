@@ -14,22 +14,24 @@ Maze mazes;
 
 void setup()
 {
-  size(570,580);
+  size(600,600);
   menu1 = new Menu();
   pman= new Plaqueman();
   mazes= new Maze();
   
 
   menu1.menuback();
-mazes.showMaze();
-pman.display();
+
   
 
 }
 
 void draw()
-{pman.update();
- 
+{ background(0); 
+  pman.display();
+  pman.update();
+  mazes.showMaze();
+  
   
   
   
