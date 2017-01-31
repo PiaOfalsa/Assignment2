@@ -27,8 +27,9 @@ void setup()
 }
 
 void draw()
+
 { background(0); 
-  pman.display();
+  pman.render();
   pman.update();
   mazes.showMaze();
   

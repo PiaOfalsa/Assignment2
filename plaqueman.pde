@@ -1,4 +1,4 @@
-class Plaqueman
+/*class Plaqueman
 {
   PImage pacpic;
   int radius, directionX, directionY;
@@ -75,3 +75,81 @@ class Plaqueman
     }
   }
 }//endclass
+
+*/
+
+class Plaqueman
+{
+  int radius;
+  int direction;
+  int direction2;
+   
+  float x;
+  float y;
+  
+  Plaqueman()
+  {
+    
+    radius = 20;
+    direction = 1;
+    direction2 = 0;
+     
+    x = 250;
+    y = 250;
+  
+  }
+  
+  void update()
+  {
+      if (key == CODED) {
+    if (keyCode == LEFT) {
+      x = x - 1;
+      direction = -1;
+      direction2 = 0;
+    }
+    else if (keyCode == RIGHT) {  
+      x = x + 1;
+      direction = 1;
+      direction2 = 0;
+    }
+    else if (keyCode == UP) {
+      y = y - 1;
+      direction = 0;
+      direction2 = -1;
+    }
+    else if (keyCode == DOWN) { 
+      y = y + 1;
+      direction = 0;
+      direction2 = 1;
+    }
+  }
+  
+  }
+  
+  void render() {
+    fill (255, 255, 0);
+  smooth ();
+  noStroke();
+  for ( int i=-1; i < 2; i++) {
+    for ( int j=-1; j < 2; j++) {
+      pushMatrix();
+      translate(x + (i * width), y + (j*height));
+      if ( direction == -1) { 
+        rotate(PI);
+      }
+      if ( direction2 == 1) { 
+        rotate(HALF_PI);
+      }
+      if ( direction2 == -1) { 
+        rotate( PI + HALF_PI );
+      }
+      arc(0, 0, radius, radius, map((millis() % 500), 0, 500, 0, 0.52), map((millis() % 500), 0, 500, TWO_PI, 5.76) );
+      popMatrix();
+      // mouth movement //
+    }
+  }
+}
+
+  
+  
+}
