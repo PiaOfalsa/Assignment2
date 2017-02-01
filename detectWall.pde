@@ -7,15 +7,17 @@ void setup() {
  
   player = new ball(50,300);
  
-  walls = new wall[8];
-  walls[0] = new wall(50,10,500,10);
-  walls[1] = new wall(50,500,500,10);
-  walls[2] = new wall(50,50,10,100);
-  walls[3] = new wall(500,250,40,500);
-  walls[4] = new wall(50,50,10,100);
-  walls[5] = new wall(500,250,40,500);
-  walls[6] = new wall(50,50,10,100);
-  walls[7] = new wall(500,250,40,500);
+  walls = new wall[10];
+  walls[0] = new wall(50,10,500,10);//top
+  walls[1] = new wall(50,500,500,10);//bottom end horizontal
+  walls[2] = new wall(540,20,10,100);//right pillar vertical
+  walls[3] = new wall(50,120,90,10);//left hor
+  walls[4] = new wall(50,400,10,100);//bottom left vert
+  walls[5] = new wall(540,400,10,100);//bottom right vert
+  walls[6] = new wall(50,20,10,100);//left vert pillar
+  walls[7] = new wall(460,120,90,10);//right horz
+  walls[8] = new wall(50,390,90,10);//
+  walls[9] = new wall(460,390,90,10);//
  
 } 
 void draw() {
@@ -76,7 +78,9 @@ class ball {
     for(int i = 0; i < walls.length; i++){
       if(possibleX > walls[i].x && possibleX < (walls[i].x + walls[i].w) && possibleY > walls[i].y && possibleY < walls[i].y + walls[i].h){
         didCollide = true;
+  
       }
+      
     }
  
     if(didCollide == false){
@@ -85,6 +89,7 @@ class ball {
     }
  
   }
+   
  
 }
  
