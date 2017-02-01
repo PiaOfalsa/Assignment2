@@ -7,7 +7,7 @@ void setup() {
  
   player = new ball(50,300);
  
-  walls = new wall[10];
+  walls = new wall[14];
   walls[0] = new wall(50,10,500,10);//top
   walls[1] = new wall(50,500,500,10);//bottom end horizontal
   walls[2] = new wall(540,20,10,100);//right pillar vertical
@@ -16,8 +16,12 @@ void setup() {
   walls[5] = new wall(540,400,10,100);//bottom right vert
   walls[6] = new wall(50,20,10,100);//left vert pillar
   walls[7] = new wall(460,120,90,10);//right horz
-  walls[8] = new wall(50,390,90,10);//
-  walls[9] = new wall(460,390,90,10);//
+  walls[8] = new wall(60,180,140,140);//first o
+  walls[9] = new wall(240,180,140,140);//2nd o
+  walls[10] = new wall(422,180,20,140);//pillar p
+  walls[11] = new wall(442,180,105,130);//
+  walls[12] = new wall(492,390,90,10);//
+  walls[13] = new wall(460,390,90,10);//
  
 } 
 void draw() {
