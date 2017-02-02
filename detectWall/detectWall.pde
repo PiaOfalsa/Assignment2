@@ -5,7 +5,7 @@ void setup() {
  
   size(600, 600);
  
-  player = new ball(50,300);
+  player = new ball(20,300);
   printWall();
  
 } 
@@ -15,8 +15,9 @@ void draw() {
   noStroke(); 
  
   player.draw();
+  //player.render();
   player.move(walls);
-  player.render();
+  
  
   for(int i = 0; i < walls.length; i++){
     walls[i].draw();
