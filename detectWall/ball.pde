@@ -86,7 +86,7 @@ class ball {
  
     boolean didCollide = false;
     for(int i = 0; i < walls.length; i++){
-      if(possibleX > walls[i].x && possibleX < (walls[i].x + walls[i].w) && possibleY > walls[i].y && possibleY < walls[i].y + walls[i].h){
+      if(possibleX > walls[i].x && possibleX< (walls[i].x + walls[i].w) && possibleY > walls[i].y && possibleY < walls[i].y + walls[i].h){
         didCollide = true;
   
       }
