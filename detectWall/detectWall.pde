@@ -1,11 +1,11 @@
-ball player;
+plaqueman player;
 wall[] walls; 
  
 void setup() {
  
   size(600, 600);
  
-  player = new ball(20,300);
+  player = new plaqueman(20,300);
   printWall();
  
 } 
