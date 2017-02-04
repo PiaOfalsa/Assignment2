@@ -10,7 +10,7 @@ class plaqueman {
     x = _x;
     y = _y;
     radius = 20;
-    direction = 1;
+    direction = 5;
     direction2 = 0;
      
     /*x = 20;
@@ -30,17 +30,17 @@ class plaqueman {
     fill (255, 255, 0);
   smooth ();
   noStroke();
-  for ( int i=-1; i < 2; i++) {
-    for ( int j=-1; j < 2; j++) {
+  for ( int i=-1; i < 5; i++) {
+    for ( int j=-1; j < 5; j++) {
       pushMatrix();
       translate(x + (i * width), y + (j*height));
-      if ( direction == -1) { 
+      if ( direction == -5) { 
         rotate(PI);
       }
-      if ( direction2 == 1) { 
+      if ( direction2 == 5) { 
         rotate(HALF_PI);
       }
-      if ( direction2 == -1) { 
+      if ( direction2 == -5) { 
         rotate( PI + HALF_PI );
       }
       arc(0, 0, radius, radius, map((millis() % 500), 0, 500, 0, 0.52), map((millis() % 500), 0, 500, TWO_PI, 5.76) );
@@ -60,26 +60,26 @@ class plaqueman {
       println(key);
  
       if (key=='a') { 
-        possibleX= possibleX - 1;
-        direction = -1;
+        possibleX= possibleX - 5;
+        direction = -5;
       direction2 = 0;
          
       } 
       if (key=='d') { 
-        possibleX = possibleX + 1;
-        direction = 1;
+        possibleX = possibleX + 5;
+        direction = 5;
       direction2 = 0;
         
       } 
       if (key=='w') { 
-        possibleY = possibleY - 1;
+        possibleY = possibleY - 5;
         direction = 0;
-      direction2 = -1;
+      direction2 = -5;
       } 
       if (key=='s') { 
-        possibleY = possibleY + 1;
+        possibleY = possibleY + 5;
         direction = 0;
-      direction2 = 1;
+      direction2 = 5;
          
       }
     }
