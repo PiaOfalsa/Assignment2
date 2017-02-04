@@ -30,17 +30,17 @@ class plaqueman {
     fill (255, 255, 0);
   smooth ();
   noStroke();
-  for ( int i=-1; i < 5; i++) {
-    for ( int j=-1; j < 5; j++) {
+  for ( int i=-1; i < 2; i++) {
+    for ( int j=-1; j < 2; j++) {
       pushMatrix();
       translate(x + (i * width), y + (j*height));
-      if ( direction == -5) { 
+      if ( direction == -2) { 
         rotate(PI);
       }
-      if ( direction2 == 5) { 
+      if ( direction2 == 2) { 
         rotate(HALF_PI);
       }
-      if ( direction2 == -5) { 
+      if ( direction2 == -2) { 
         rotate( PI + HALF_PI );
       }
       arc(0, 0, radius, radius, map((millis() % 500), 0, 500, 0, 0.52), map((millis() % 500), 0, 500, TWO_PI, 5.76) );
@@ -60,26 +60,26 @@ class plaqueman {
       println(key);
  
       if (key=='a') { 
-        possibleX= possibleX - 5;
-        direction = -5;
+        possibleX= possibleX - 2;
+        direction = -2;
       direction2 = 0;
          
       } 
       if (key=='d') { 
-        possibleX = possibleX + 5;
-        direction = 5;
+        possibleX = possibleX + 2;
+        direction = 2;
       direction2 = 0;
         
       } 
       if (key=='w') { 
-        possibleY = possibleY - 5;
+        possibleY = possibleY - 2;
         direction = 0;
-      direction2 = -5;
+      direction2 = -2;
       } 
       if (key=='s') { 
-        possibleY = possibleY + 5;
+        possibleY = possibleY + 2;
         direction = 0;
-      direction2 = 5;
+      direction2 = 2;
          
       }
     }
@@ -92,16 +92,26 @@ class plaqueman {
       }
       
     }
- 
-    if(didCollide == false){
+   
+    if(didCollide == false && x<width)
+    {
       x = possibleX;
       y = possibleY;
-    }
+      
+     }
+     
+  strokeWeight(5); 
+  stroke(255); // white 
+  for (int i =0; i <= width; i+=100) {
+    if (i > x-50) 
+    point(i+55, height/2+40);
+  } 
+   
  
   }
   
+  
 
-   
- 
+
 }
  
