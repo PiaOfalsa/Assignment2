@@ -11,7 +11,7 @@ class plaqueman {
   plaqueman(float _x, float _y){
     x = _x;
     y = _y;
-    radius = 20;
+    radius = 10;
     direction = 5;
     direction2 = 0;
     score=0;
@@ -68,7 +68,10 @@ class plaqueman {
        println(score);
     }
   }
-      
+      textSize(50);
+      strokeWeight(3);
+      stroke(0);
+      text(score, 50, 70);
   
   }
  

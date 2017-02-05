@@ -6,7 +6,7 @@ class Food {
   }
   void display() {
     noStroke();
-    fill(#FCA900);
-    ellipse(x, y, 10, 10);
+    fill(255);
+    ellipse(x, y, 5, 5);
   }
 }
