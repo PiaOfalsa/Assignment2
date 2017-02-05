@@ -11,18 +11,26 @@ class plaqueman {
   plaqueman(float _x, float _y){
     x = _x;
     y = _y;
-    radius = 20;
+    radius = 15;
     direction = 5;
     direction2 = 0;
     score=0;
     
     //food
      ellipseMode(RADIUS);
-  for (int i=0; i<300; i+=30) {
-    Food P = new Food((int(50+i)),(int)(80));
-    Food Q = new Food((int(80+i)),(int)(120));
+  for (int i=0; i<430; i+=35) {
+    Food P = new Food((int(30+i)),(int)(40));
+    Food Q = new Food((int(30+i)),(int)(90));
     pFood.add(P);
     pFood.add(Q);
+   
+  }
+  
+    for (int i=0; i<320; i+=50) {
+    Food R = new Food((int(170)),(int)(140+i));
+  
+    pFood.add(R);
+    
    
   }
   }
