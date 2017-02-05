@@ -5,17 +5,26 @@ class plaqueman {
  
   float x;
   float y;
- 
+  int score;
+  
+  ArrayList<Food> pFood = new ArrayList();
   plaqueman(float _x, float _y){
     x = _x;
     y = _y;
     radius = 20;
     direction = 5;
     direction2 = 0;
-     
-    /*x = 20;
-    y = 250;
-    */
+    score=0;
+    
+    //food
+     ellipseMode(RADIUS);
+  for (int i=0; i<300; i+=30) {
+    Food P = new Food((int(50+i)),(int)(80));
+    Food Q = new Food((int(80+i)),(int)(120));
+    pFood.add(P);
+    pFood.add(Q);
+   
+  }
   }
  
   void draw(){
@@ -48,6 +57,19 @@ class plaqueman {
       // mouth movement //
     }
   }
+  
+  //food
+   for (int i=0;i<pFood.size();i++) {
+    Food Pn = (Food) pFood.get(i);
+    Pn.display();
+    if (dist(x, y, Pn.x, Pn.y)<radius) {
+      pFood.remove(i);
+       score++;
+       println(score);
+    }
+  }
+      
+  
   }
  
   void move(wall[] walls){
@@ -85,33 +107,28 @@ class plaqueman {
     }
  
     boolean didCollide = false;
-    for(int i = 0; i < walls.length; i++){
-      if(possibleX + 15 > walls[i].x && possibleX + 15< (walls[i].x+15 + walls[i].w+15) && possibleY +30> walls[i].y+15 && possibleY+30 + 15< walls[i].y+30 + walls[i].h+30){
+    for(int i = 0; i < walls.length; i++)
+    {
+      if(possibleX + 15 > walls[i].x && possibleX + 15< (walls[i].x+15 + walls[i].w+15) && possibleY +30> walls[i].y+15 && possibleY+30 + 15< walls[i].y+30 + walls[i].h+30)
+      {
         didCollide = true;
   
       }
       
-    }
+    }//end for
    
     if(didCollide == false && x<width)
     {
       x = possibleX;
       y = possibleY;
       
-     }
+     }//end if
      
-  strokeWeight(5); 
-  stroke(255); // white 
-  for (int i =0; i <= width; i+=100) {
-    if (i > x-50) 
-    point(i+55, height/2+40);
-  } 
-   
  
-  }
+  } //end method
+  
   
   
 
-
-}
+}//end class
  
