@@ -79,7 +79,7 @@ class plaqueman {
       textSize(50);
       strokeWeight(3);
       stroke(0);
-      text(score, 50, 70);
+      text(score, 270, 580);
   
   }
  
