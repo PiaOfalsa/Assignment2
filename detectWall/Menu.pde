@@ -63,7 +63,7 @@ class Menu
   void show() {
     float thick = map(z, 0, 20, 1, 3);
     strokeWeight(thick);
-    stroke(138, 43, 226);
+    stroke(0, 0, 255);
     line(x, y, x, y+len);
   }
   
