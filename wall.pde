@@ -12,7 +12,7 @@ class wall {
     w = _w;
     h = _h;
     
-    arcade=loadFont("CosmicAlien-48.vlw");
+    arcade=loadFont("CosmicAlien-30.vlw");
   }
  
   void draw(){
@@ -21,11 +21,12 @@ class wall {
     stroke(0,0,255);
     rect(x,y,w,h);
     
-    fill(255,247,10);//make a var for the color
-    textSize(10);
-    strokeWeight(1);
+    fill(255);//make a var for the color
+    textSize(30);
+    
     textFont(arcade);
     text("Score:",50,580);
+    text("Lives:",350,580);
   }
  
 }
