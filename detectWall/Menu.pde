@@ -3,6 +3,7 @@ class Menu
   int menuPosX;
   int menuPosY;
   PFont pac;
+  PFont pac2;
   PFont arcade;
   PImage pacpic;
   
@@ -17,9 +18,11 @@ class Menu
 
   Menu()
   {
-    menuPosX = 90;
+    menuPosX = 50;
     menuPosY = 100; 
-    pac=loadFont("PacFont-48.vlw");
+    pac=loadFont("PacFont-55.vlw");
+    pac2=loadFont("CosmicAlien-30.vlw");
+    pacpic = loadImage("pacmenu.png");
     
     x  = random(width);
     y  = random(-500, -50);
@@ -33,9 +36,16 @@ class Menu
   {
     background(0);
     fill(255,247,10);//make a var for the color
-    strokeWeight(4);
+    strokeWeight(10);
     textFont(pac);
     text("PLAQUE-MAN",menuPosX,menuPosY);
+    
+    noFill();
+    stroke(255,247,10);//make a var for the color
+    strokeWeight(4);
+    textFont(pac2);
+    text("PRESS ENTER",170,380);
+    image(pacpic,130,150);
      if(keyPressed)
     {
       if(key == ENTER)
