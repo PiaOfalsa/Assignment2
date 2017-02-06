@@ -10,6 +10,8 @@ class plaqueman {
   int score;
   
   ArrayList<Food> pFood = new ArrayList();
+    
+  ArrayList<Food_yum> yumFood = new ArrayList();
   Minim minim1;
  
   AudioPlayer chomp;
@@ -38,6 +40,12 @@ class plaqueman {
     pFood.add(T);//bottom foods near oop
     pFood.add(U);
     pFood.add(V);
+   
+  }
+  
+    for (int k=0; k<4; k+=2) {
+    Food_yum big1 = new Food_yum((int(30)),(int)(40));
+    yumFood.add(big1);
    
   }
    
@@ -84,14 +92,32 @@ class plaqueman {
     Food Pn = (Food) pFood.get(i);
     Pn.display();
     
-    if (dist(x, y, Pn.x, Pn.y)<radius) {
+    if (dist(x, y, Pn.x, Pn.y)<radius) 
+    {
+      
       pFood.remove(i);
        score++;
+       println(score);
+
+       
+    }
+   }//end for
+   
+   //bonus big food pellets
+    
+      for (int j=0;j<yumFood.size();j++) {
+    Food_yum Yum = (Food_yum) yumFood.get(j);
+    Yum.display();
+    
+    if (dist(x, y, Yum.x, Yum.y)<radius)
+    {
+      
+      yumFood.remove(j);
+       score=score+5;
        println(score);
    
        
     }
-    
     
     
   }
