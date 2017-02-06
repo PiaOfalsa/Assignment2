@@ -27,7 +27,7 @@ void setup() {
 
   minim=new Minim(this);
   hello = minim.loadFile("pacman_beginning.wav"); minim=new Minim(this);
-  chomp = minim.loadFile("pacman_chomp.wav");
+  chomp = minim.loadFile("Pac-Man Waka Waka Seamless Loop.mp3");
   
  
 } 
@@ -41,6 +41,7 @@ void draw() {
      for (int i = 0; i < menus.length; i++) {
     menus[i].fall();
     menus[i].show();
+    hello.play();
   }
   
 
@@ -49,10 +50,10 @@ void draw() {
    {
      printWall();
      noStroke(); 
-     hello.play();
+     
      player.draw();
     //player.render();
-    
+    chomp.play();
     player.move(walls);
   
   
