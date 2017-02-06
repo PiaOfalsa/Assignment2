@@ -1,28 +1,73 @@
+Menu menu;
+Menu[] menus = new Menu[50];
 plaqueman player;
 wall[] walls; 
- 
+
+import ddf.minim.*;
+Minim minim;
+AudioPlayer hello;
+AudioPlayer chomp;
+
+int mode=0;// intro screen 1 normal play 2 game end
+int INTRO=0;
+int PLAY=1;
+int GOVER=2;
+
 void setup() {
  
   size(600, 600);
- 
+  menu=new Menu();
+  for (int i = 0; i < menus.length; i++) {
+    menus[i] = new Menu();
+  }
+  
+   
   player = new plaqueman(20,300);
-  printWall();
+  
+
+  minim=new Minim(this);
+  hello = minim.loadFile("pacman_beginning.wav"); minim=new Minim(this);
+  chomp = minim.loadFile("pacman_chomp.wav");
+  
  
 } 
 void draw() {
  
   background(0); 
-  noStroke(); 
- 
-  player.draw();
-  //player.render();
-  player.move(walls);
+  if(mode==INTRO)
+   {
+     menu.menuback();
+     
+     for (int i = 0; i < menus.length; i++) {
+    menus[i].fall();
+    menus[i].show();
+  }
+  
+
+   }//end if modem 
+   else if(mode==PLAY)
+   {
+     printWall();
+     noStroke(); 
+     hello.play();
+     player.draw();
+    //player.render();
+    
+    player.move(walls);
+  
   
  
   for(int i = 0; i < walls.length; i++){
     walls[i].draw();
   }
  
+   }//end else if 1
+   else if(mode==GOVER)
+   {
+   
+   }//end else if 2
+   
+
 }
  
 void printWall(){
