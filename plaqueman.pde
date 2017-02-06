@@ -30,11 +30,13 @@ class plaqueman {
     Food S = new Food((int(35+i)),(int)(480));
     Food T = new Food((int(35+i)),(int)(416));
     Food U = new Food((int(35+i)),(int)(363));
+    Food V = new Food((int(35+i)),(int)(160));
     pFood.add(P);
     pFood.add(Q);
     pFood.add(S);//bottom foods
     pFood.add(T);//bottom foods near oop
     pFood.add(U);
+    pFood.add(V);
    
   }
    
