@@ -58,17 +58,17 @@ class plaqueman {
     fill (255, 255, 0);
   smooth ();
   noStroke();
-  for ( int i=-1; i < 2; i++) {
-    for ( int j=-1; j < 2; j++) {
+  for ( int i=-1; i < 10; i++) {
+    for ( int j=-1; j < 10; j++) {
       pushMatrix();
       translate(x + (i * width), y + (j*height));
-      if ( direction == -2) { 
+      if ( direction == -10) { 
         rotate(PI);
       }
-      if ( direction2 == 2) { 
+      if ( direction2 == 10) { 
         rotate(HALF_PI);
       }
-      if ( direction2 == -2) { 
+      if ( direction2 == -10) { 
         rotate( PI + HALF_PI );
       }
       arc(0, 0, radius, radius, map((millis() % 500), 0, 500, 0, 0.52), map((millis() % 500), 0, 500, TWO_PI, 5.76) );
@@ -89,10 +89,10 @@ class plaqueman {
     
   }
     
-      textSize(50);
+      textSize(30);
       strokeWeight(3);
-      stroke(0);
-      text(score, 270, 580);
+      fill(255,255,0);
+      text(score, 200, 580);
       //chomp.play();
   
   }
@@ -107,26 +107,26 @@ class plaqueman {
       println(key);
  
       if (key=='a') { 
-        possibleX= possibleX - 20;
-        direction = -20;
+        possibleX= possibleX - 10;
+        direction = -10;
       direction2 = 0;
          
       } 
       if (key=='d') { 
-        possibleX = possibleX + 20;
-        direction = 2;
+        possibleX = possibleX + 10;
+        direction = 10;
       direction2 = 0;
         
       } 
       if (key=='w') { 
-        possibleY = possibleY - 20;
+        possibleY = possibleY - 10;
         direction = 0;
-      direction2 = -20;
+      direction2 = -10;
       } 
       if (key=='s') { 
-        possibleY = possibleY + 20;
+        possibleY = possibleY + 10;
         direction = 0;
-      direction2 = 20;
+      direction2 = 10;
          
       }
     }
