@@ -89,10 +89,10 @@ class plaqueman {
     
   }
     
-      textSize(50);
+      textSize(30);
       strokeWeight(3);
-      stroke(0);
-      text(score, 270, 580);
+      fill(255,255,0);
+      text(score, 200, 580);
       //chomp.play();
   
   }

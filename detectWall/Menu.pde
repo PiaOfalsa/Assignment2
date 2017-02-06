@@ -19,7 +19,7 @@ class Menu
   Menu()
   {
     menuPosX = 50;
-    menuPosY = 100; 
+    menuPosY = 90; 
     pac=loadFont("PacFont-55.vlw");
     pac2=loadFont("CosmicAlien-30.vlw");
     pacpic = loadImage("pacmenu.png");
@@ -36,7 +36,7 @@ class Menu
   {
     background(0);
     fill(255,247,10);//make a var for the color
-    strokeWeight(10);
+    strokeWeight(20);
     textFont(pac);
     text("PLAQUE-MAN",menuPosX,menuPosY);
     
