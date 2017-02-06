@@ -1,3 +1,5 @@
+import ddf.minim.*;
+  
 class plaqueman {
   int radius;
   int direction;
@@ -8,6 +10,10 @@ class plaqueman {
   int score;
   
   ArrayList<Food> pFood = new ArrayList();
+  Minim minim;
+ 
+  AudioPlayer chomp;
+
   plaqueman(float _x, float _y){
     x = _x;
     y = _y;
@@ -18,21 +24,24 @@ class plaqueman {
     
     //food
      ellipseMode(RADIUS);
-  for (int i=0; i<430; i+=35) {
+  for (int i=0; i<430; i+=45) {
     Food P = new Food((int(30+i)),(int)(40));
     Food Q = new Food((int(30+i)),(int)(90));
+    Food S = new Food((int(35+i)),(int)(480));
+    Food T = new Food((int(35+i)),(int)(416));
+    Food U = new Food((int(35+i)),(int)(363));
     pFood.add(P);
     pFood.add(Q);
+    pFood.add(S);//bottom foods
+    pFood.add(T);//bottom foods near oop
+    pFood.add(U);
    
   }
+   
+  minim=new Minim(this);
+  chomp = minim.loadFile("pacman_chomp.wav");
   
-    for (int i=0; i<320; i+=50) {
-    Food R = new Food((int(170)),(int)(140+i));
-  
-    pFood.add(R);
     
-   
-  }
   }
  
   void draw(){
@@ -75,11 +84,14 @@ class plaqueman {
        score++;
        println(score);
     }
+    
   }
+    
       textSize(50);
       strokeWeight(3);
       stroke(0);
       text(score, 270, 580);
+      //chomp.play();
   
   }
  
