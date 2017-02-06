@@ -105,26 +105,26 @@ class plaqueman {
       println(key);
  
       if (key=='a') { 
-        possibleX= possibleX - 2;
-        direction = -2;
+        possibleX= possibleX - 20;
+        direction = -20;
       direction2 = 0;
          
       } 
       if (key=='d') { 
-        possibleX = possibleX + 2;
+        possibleX = possibleX + 20;
         direction = 2;
       direction2 = 0;
         
       } 
       if (key=='w') { 
-        possibleY = possibleY - 2;
+        possibleY = possibleY - 20;
         direction = 0;
-      direction2 = -2;
+      direction2 = -20;
       } 
       if (key=='s') { 
-        possibleY = possibleY + 2;
+        possibleY = possibleY + 20;
         direction = 0;
-      direction2 = 2;
+      direction2 = 20;
          
       }
     }
