@@ -26,6 +26,7 @@ class wall {
     
     textFont(arcade);
     text("Score:",50,580);
+    text("Lives:",350,580);
   }
  
 }

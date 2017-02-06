@@ -21,7 +21,7 @@ class Menu
     menuPosX = 50;
     menuPosY = 90; 
     pac=loadFont("PacFont-55.vlw");
-    pac2=loadFont("CosmicAlien-30.vlw");
+    pac2=loadFont("CosmicAlien-20.vlw");
     pacpic = loadImage("pacmenu.png");
     
     x  = random(width);
@@ -41,10 +41,11 @@ class Menu
     text("PLAQUE-MAN",menuPosX,menuPosY);
     
     noFill();
-    stroke(255,247,10);//make a var for the color
-    strokeWeight(4);
+    fill(255);//make a var for the color
+    textSize(20);
     textFont(pac2);
-    text("PRESS ENTER",170,380);
+    text("PRESS ENTER TO PLAY",160,440);
+    text("PRESS (S KEY) SCORE",160,480);
     image(pacpic,130,150);
      if(keyPressed)
     {
