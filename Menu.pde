@@ -23,6 +23,17 @@ class Menu
     strokeWeight(4);
     textFont(pac);
     text("PLAQUE-MAN",menuPosX,menuPosY);
+     if(keyPressed)
+    {
+      if(key == ENTER)
+      {
+           mode=1;
+      }
+    
+   
+    }//end if keypressed
+    println(key);
+    
   }//end void menu
   
 }//endclass

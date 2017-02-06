@@ -8,6 +8,9 @@ AudioPlayer hello;
 AudioPlayer chomp;
 
 int mode=0;// intro screen 1 normal play 2 game end
+int INTRO=0;
+int PLAY=1;
+int GOVER=2;
 
 void setup() {
  
@@ -26,11 +29,11 @@ void setup() {
 void draw() {
  
   background(0); 
-  if(mode==0)
+  if(mode==INTRO)
    {
      menu.menuback();
-   }//end if mode
-   else if(mode==1)
+   }//end if modem 
+   else if(mode==PLAY)
    {
      printWall();
      noStroke(); 
@@ -47,7 +50,7 @@ void draw() {
   }
  
    }//end else if 1
-   else if(mode==2)
+   else if(mode==GOVER)
    {
    
    }//end else if 2
