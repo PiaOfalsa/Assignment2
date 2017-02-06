@@ -8,5 +8,6 @@ class Food {
     noStroke();
     fill(255, 204, 102);
     ellipse(x, y, 4, 4);
+   
   }
 }

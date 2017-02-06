@@ -27,7 +27,7 @@ void setup() {
 
   minim=new Minim(this);
   hello = minim.loadFile("pacman_beginning.wav"); minim=new Minim(this);
-  chomp = minim.loadFile("Pac-Man Waka Waka Seamless Loop.mp3");
+  chomp = minim.loadFile("Waka Flocka Pacman.mp3");
   
  
 } 
@@ -42,25 +42,27 @@ void draw() {
     menus[i].fall();
     menus[i].show();
     hello.play();
+    
   }
   
 
    }//end if modem 
    else if(mode==PLAY)
-   {
+   {//hello.pause();
+     
      printWall();
-     noStroke(); 
      
      player.draw();
     //player.render();
-    chomp.play();
     player.move(walls);
+    
   
   
  
   for(int i = 0; i < walls.length; i++){
     walls[i].draw();
   }
+  chomp.play();
  
    }//end else if 1
    else if(mode==GOVER)

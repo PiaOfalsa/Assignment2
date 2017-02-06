@@ -10,7 +10,7 @@ class plaqueman {
   int score;
   
   ArrayList<Food> pFood = new ArrayList();
-  Minim minim;
+  Minim minim1;
  
   AudioPlayer chomp;
 
@@ -21,6 +21,7 @@ class plaqueman {
     direction = 5;
     direction2 = 0;
     score=0;
+
     
     //food
      ellipseMode(RADIUS);
@@ -40,8 +41,8 @@ class plaqueman {
    
   }
    
-  minim=new Minim(this);
-  chomp = minim.loadFile("pacman_chomp.wav");
+  minim1=new Minim(this);
+  chomp = minim1.loadFile("Pac-Man Waka Waka Seamless Loop.mp3");
   
     
   }
@@ -58,6 +59,7 @@ class plaqueman {
     fill (255, 255, 0);
   smooth ();
   noStroke();
+
   for ( int i=-1; i < 10; i++) {
     for ( int j=-1; j < 10; j++) {
       pushMatrix();
@@ -76,16 +78,21 @@ class plaqueman {
       // mouth movement //
     }
   }
-  
+
   //food
    for (int i=0;i<pFood.size();i++) {
     Food Pn = (Food) pFood.get(i);
     Pn.display();
+    
     if (dist(x, y, Pn.x, Pn.y)<radius) {
       pFood.remove(i);
        score++;
        println(score);
+   
+       
     }
+    
+    
     
   }
     
@@ -93,16 +100,18 @@ class plaqueman {
       strokeWeight(3);
       fill(255, 204, 102);
       text(score, 200, 580);
-      //chomp.play();
+      
   
   }
  
   void move(wall[] walls){
+    
  
     float possibleX = x;
     float possibleY = y;
- 
+
     if (keyPressed==true) {
+
  
       println(key);
  
@@ -127,6 +136,8 @@ class plaqueman {
         possibleY = possibleY + 10;
         direction = 0;
       direction2 = 10;
+      
+   
          
       }
     }
@@ -137,8 +148,11 @@ class plaqueman {
       if(possibleX + 15 > walls[i].x && possibleX + 15< (walls[i].x+15 + walls[i].w+15) && possibleY +30> walls[i].y+15 && possibleY+30 + 15< walls[i].y+30 + walls[i].h+30)
       {
         didCollide = true;
+    
+
   
       }
+    
       
     }//end for
    
@@ -146,10 +160,13 @@ class plaqueman {
     {
       x = possibleX;
       y = possibleY;
+
       
      }//end if
      
- 
+    
+     
+
   } //end method
   
   
