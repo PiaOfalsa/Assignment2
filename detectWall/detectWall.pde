@@ -62,7 +62,7 @@ void draw() {
   for(int i = 0; i < walls.length; i++){
     walls[i].draw();
   }
-  chomp.play();
+  //chomp.play();
  
    }//end else if 1
    else if(mode==GOVER)

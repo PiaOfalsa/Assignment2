@@ -43,9 +43,21 @@ class plaqueman {
    
   }
   
-    for (int k=0; k<4; k+=2) {
+    for (int k=0; k<4; k+=100)
+    {
+    
     Food_yum big1 = new Food_yum((int(30)),(int)(40));
+    Food_yum big2 = new Food_yum((int(470)),(int)(40));
+    Food_yum big3 = new Food_yum((int(470)),(int)(160));
+    Food_yum big4 = new Food_yum((int(30)),(int)(160));
+    Food_yum big5 = new Food_yum((int(30)),(int)(360));
+    Food_yum big6 = new Food_yum((int(470)),(int)(360));
     yumFood.add(big1);
+    yumFood.add(big2);
+    yumFood.add(big3);
+    yumFood.add(big4);//right 2nd big food
+    yumFood.add(big5);//left 2nd big food
+    yumFood.add(big6);//left 2nd big food
    
   }
    
@@ -104,10 +116,13 @@ class plaqueman {
    }//end for
    
    //bonus big food pellets
-    
-      for (int j=0;j<yumFood.size();j++) {
-    Food_yum Yum = (Food_yum) yumFood.get(j);
-    Yum.display();
+     
+      for (int j=0;j<yumFood.size();j++)
+      {
+       
+        
+      Food_yum Yum = (Food_yum) yumFood.get(j);
+      Yum.display();
     
     if (dist(x, y, Yum.x, Yum.y)<radius)
     {
@@ -140,11 +155,13 @@ class plaqueman {
 
  
       println(key);
+
  
       if (key=='a') { 
         possibleX= possibleX - 10;
         direction = -10;
       direction2 = 0;
+
          
       } 
       if (key=='d') { 

@@ -6,7 +6,7 @@ class Food_yum {
   }
   void display() {
     noStroke();
-    fill(255, 204, 102);
+    fill(random(120,255), random(120,255),0);
     ellipse(x, y, 10, 10);
    
   }
