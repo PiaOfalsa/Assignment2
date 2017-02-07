@@ -54,7 +54,7 @@ class Menu
            mode=1;
       }
       
-       else if (keyCode == 'c')
+       else if (key == 's' || key == 'S' )
       {
            mode=2;
       }
