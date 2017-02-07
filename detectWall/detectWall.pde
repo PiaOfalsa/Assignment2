@@ -29,13 +29,13 @@ void setup() {
   hello = minim.loadFile("pacman_beginning.wav"); minim=new Minim(this);
   chomp = minim.loadFile("Waka Flocka Pacman.mp3");
   loadData();
-    minmax();
-    margin = width * 0.1f;
+  minmax();
+  margin = width * 0.1f;
  
 } 
 void draw() {
  
-  background(0); 
+  //background(0); 
   if(mode==INTRO)
    {
      menu.menuback();
@@ -47,8 +47,7 @@ void draw() {
     
     
   }
-  
-  
+  //game screen
 
    }//end if modem 
    else if(mode==PLAY)
@@ -73,9 +72,8 @@ void draw() {
    else if(mode==GOVER)
    {
  
-    
-     
-    text(" HIGHEST SCORE ",140,50);
+   
+    background(172,247,249);
     drawLineGraph();
     drawSCOREShighestScores();
    
@@ -151,20 +149,24 @@ void minmax()
 
 void drawLineGraph()
 {
-  background(0);
-  stroke(255,0,0);  
+  
+  stroke(255,0,0);  //L of the graph
+  
   line(margin - 5, height - margin, width - margin, height - margin);
   line(margin, margin, margin, height - margin + 5);
   
-  
+   text(" HIGHEST SCORE ",40,340);
   for (int i = 1 ; i < data.size() ; i ++)
   {
-    fill(0);
+   
+    
+    stroke(0,0,255);
     float x1 = map(i - 1, 0, data.size() - 1, margin, width - margin);
     float y1 = map(data.get(i - 1).highestScores, min, max, height - margin, margin);
     float x2 = map(i, 0, data.size() - 1, margin, width - margin);
     float y2 = map(data.get(i).highestScores, min, max, height - margin, margin);
-    stroke(0);
+    
+    fill(0);
     line(x1, y1, x2, y2);
     
   }  
@@ -173,12 +175,14 @@ void drawLineGraph()
 
 void drawSCOREShighestScores()
 {
-  background(0,255,0);
+  
+  fill(255,0,0);
   if (mouseX >= margin && mouseX <= width - margin)
   {
-    stroke(0);
+    //vertical line
     strokeWeight(2);
     fill(255, 200, 0);
+    
     line(mouseX, margin, mouseX, height - margin);
     int i = (int) map(mouseX, margin, width - margin, 0, data.size() - 1);
     float y = map(data.get(i).highestScores, min, max, height - margin, margin);
