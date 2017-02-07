@@ -52,12 +52,16 @@ class plaqueman {
     Food_yum big4 = new Food_yum((int(30)),(int)(160));
     Food_yum big5 = new Food_yum((int(30)),(int)(360));
     Food_yum big6 = new Food_yum((int(470)),(int)(360));
+    Food_yum big7 = new Food_yum((int(30)),(int)(480));
+    Food_yum big8 = new Food_yum((int(470)),(int)(480));
     yumFood.add(big1);
     yumFood.add(big2);
     yumFood.add(big3);
     yumFood.add(big4);//right 2nd big food
     yumFood.add(big5);//left 2nd big food
-    yumFood.add(big6);//left 2nd big food
+    yumFood.add(big6);//
+    yumFood.add(big7);//
+    yumFood.add(big8);//
    
   }
    
