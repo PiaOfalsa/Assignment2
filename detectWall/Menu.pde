@@ -53,6 +53,11 @@ class Menu
       {
            mode=1;
       }
+      
+       else if (keyCode == 'c')
+      {
+           mode=2;
+      }
     
    
     }//end if keypressed

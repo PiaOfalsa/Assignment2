@@ -43,12 +43,15 @@ void draw() {
     menus[i].show();
     hello.play();
     
+    
   }
+  
   
 
    }//end if modem 
    else if(mode==PLAY)
    {//hello.pause();
+   
      
      printWall();
      
@@ -67,6 +70,13 @@ void draw() {
    }//end else if 1
    else if(mode==GOVER)
    {
+      loadData();
+       minmax();
+       margin = width * 0.1f;
+       
+       text(" HIGHEST SCORE ",140,50);
+  drawLineGraph();
+  drawSCOREShighestScores();
    
    }//end else if 2
    
@@ -101,4 +111,83 @@ void printWall(){
   walls[23] = new wall(460,440,40,10);//bot right
  
 
+}
+
+ArrayList<SCORES> data = new ArrayList<SCORES>();
+
+float margin;
+float min, max;
+
+
+void loadData()
+{
+  Table t = loadTable("HSCORE.csv");
+  for(int i = 0 ; i < t.getRowCount(); i ++)
+  {
+    TableRow row = t.getRow(i);
+    SCORES scores = new SCORES(row);
+    data.add(scores);
+  }
+}
+
+
+void minmax()
+{
+  min = max = data.get(0).highestScores; 
+  for (SCORES scores:data)
+  {
+    if (scores.highestScores < min)
+    {
+      min = scores.highestScores;
+    }
+    if (scores.highestScores > max)
+    {
+      max = scores.highestScores;
+    }    
+  }
+}
+
+
+void drawLineGraph()
+{
+  
+  stroke(255,0,0);  
+  line(margin - 5, height - margin, width - margin, height - margin);
+  line(margin, margin, margin, height - margin + 5);
+  
+  
+  for (int i = 1 ; i < data.size() ; i ++)
+  {
+    stroke(0,0,255);
+    float x1 = map(i - 1, 0, data.size() - 1, margin, width - margin);
+    float y1 = map(data.get(i - 1).highestScores, min, max, height - margin, margin);
+    float x2 = map(i, 0, data.size() - 1, margin, width - margin);
+    float y2 = map(data.get(i).highestScores, min, max, height - margin, margin);
+    line(x1, y1, x2, y2);
+    
+  }  
+}
+
+
+void drawSCOREShighestScores()
+{
+  if (mouseX >= margin && mouseX <= width - margin)
+  {
+    stroke(255, 255, 0);
+    strokeWeight(2);
+    fill(255, 255, 0);
+    line(mouseX, margin, mouseX, height - margin);
+    int i = (int) map(mouseX, margin, width - margin, 0, data.size() - 1);
+    float y = map(data.get(i).highestScores, min, max, height - margin, margin);
+    
+    
+    ellipse(mouseX, y, 10, 10);
+     
+    
+    fill(0);
+    textSize(10);
+    text("Year: " + data.get(i).year, mouseX, y);
+    text("HIGHEST_SCORES: " + data.get(i).highestScores, mouseX, y + 30);
+    text("Player ID " + data.get(i).highestScores, mouseX, y + 50);
+  }
 }
