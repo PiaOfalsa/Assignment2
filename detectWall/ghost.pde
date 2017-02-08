@@ -3,7 +3,7 @@ PImage red;
 class Ghost {
   float x, y;
   Ghost(int x, int y) {
-    this.x = x+50;
+    this.x = x+40;
     this.y = y;
     red =loadImage("red.gif");
   }
@@ -12,7 +12,13 @@ class Ghost {
     noStroke();
     fill(255, 204, 102);
     image(red,x,y);
-    x=x+random(10,50);
+    x=x+20;
+    y=random(40,70);
+    if(x>width-100)
+    {
+      x=x-450;
+      
+    }
    
   }
 }
