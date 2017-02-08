@@ -195,6 +195,29 @@ class plaqueman {
     
        }
        
+        //orange
+          for (int o=0;o<ghosts.size();o++)
+      {
+       
+        
+        Ghost ghostO = (Ghost) ghosts.get(o);
+        ghostO.displayGhostOrange();
+      
+          if (dist(x, y, ghostO.x, ghostO.y)<radius)
+          {
+            
+            ghosts.remove(o);
+             score=score-score;
+             println(score);
+             
+             //game over
+         
+             
+          }
+    
+    
+       }
+       
        
        
     
