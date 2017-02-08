@@ -157,7 +157,7 @@ class plaqueman {
        
         
         Ghost ghostR = (Ghost) ghosts.get(g);
-        ghostR.displayGhost();
+        ghostR.displayGhostRed();
       
           if (dist(x, y, ghostR.x, ghostR.y)<radius)
           {
@@ -170,9 +170,33 @@ class plaqueman {
          
              
           }
+      }
+      
+         //blue
+          for (int b=0;b<ghosts.size();b++)
+      {
+       
+        
+        Ghost ghostB = (Ghost) ghosts.get(b);
+        ghostB.displayGhostBlue();
+      
+          if (dist(x, y, ghostB.x, ghostB.y)<radius)
+          {
+            
+            ghosts.remove(b);
+             score=score-score;
+             println(score);
+             
+             //game over
+         
+             
+          }
     
     
        }
+       
+       
+       
     
       textSize(30);
       strokeWeight(3);
