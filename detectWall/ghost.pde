@@ -3,10 +3,19 @@ PImage blue;
 PImage orange;
 
 class Ghost {
-  float x, y;
+  float xR, yR;
+  float xB, yB;
+  float xO, yO;
   Ghost(int x, int y) {
-    this.x = x+40;
-    this.y = y;
+    this.xR = xR+40;
+    this.yR = yR;
+    
+    this.xB = xB+40;
+    this.yB = yB;
+    
+    this.xO = xO+40;
+    this.yO = yO;
+    
     red =loadImage("red.gif");
     blue =loadImage("blue.gif");
     orange =loadImage("orange.gif");
@@ -15,12 +24,12 @@ class Ghost {
     
     noStroke();
     fill(255, 204, 102);
-    image(red,x,y);
-    x=x+20;
-    y=random(40,70);
-    if(x>width-100)
+    image(red,xR,yR);
+    xR=xR+20;
+    yR=random(40,70);
+    if(xR>width-100)
     {
-      x=x-450;
+      xR=xR-450;
       
     }
    
@@ -31,12 +40,12 @@ class Ghost {
     
     noStroke();
     fill(255, 204, 102);
-    image(blue,250,y);
-    y=y-40;
-    y=random(40);
-    if(y>height)
+    image(blue,250,yB);
+    yB=yB-40;
+    yB=random(40);
+    if(yB>height)
     {
-      y=y-450;
+      yB=yB-450;
       
     }
    
@@ -47,12 +56,12 @@ class Ghost {
     
     noStroke();
     fill(255, 204, 102);
-    image(orange,250,y);
-    x=x-40;
-    y=random(40);
-    if(x>height)
+    image(orange,250,yO);
+    xO=xO-40;
+    yO=random(40);
+    if(xO>height)
     {
-      x=x-450;
+      xO=xO-450;
       
     }
    

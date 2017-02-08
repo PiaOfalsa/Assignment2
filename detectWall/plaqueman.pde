@@ -159,7 +159,7 @@ class plaqueman {
         Ghost ghostR = (Ghost) ghosts.get(g);
         ghostR.displayGhostRed();
       
-          if (dist(x, y, ghostR.x, ghostR.y)<radius)
+          if (dist(x, y, ghostR.xR, ghostR.yR)<radius)
           {
             
             ghosts.remove(g);
@@ -180,7 +180,7 @@ class plaqueman {
         Ghost ghostB = (Ghost) ghosts.get(b);
         ghostB.displayGhostBlue();
       
-          if (dist(x, y, ghostB.x, ghostB.y)<radius)
+          if (dist(x, y, ghostB.xB, ghostB.yB)<radius)
           {
             
             ghosts.remove(b);
@@ -203,7 +203,7 @@ class plaqueman {
         Ghost ghostO = (Ghost) ghosts.get(o);
         ghostO.displayGhostOrange();
       
-          if (dist(x, y, ghostO.x, ghostO.y)<radius)
+          if (dist(x, y, ghostO.xO, ghostO.yO)<radius)
           {
             
             ghosts.remove(o);
