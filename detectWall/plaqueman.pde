@@ -70,7 +70,7 @@ class plaqueman {
      for (int g=0; g<1; g++)
     {
     
-     Ghost ghostR = new Ghost((int(30)),(int)(40));
+     Ghost ghostR = new Ghost((int(30)),(int)(40),(int(30)),(int)(40),(int(30)),(int)(40));
    
     ghosts.add(ghostR);//
     

@@ -6,7 +6,7 @@ class Ghost {
   float xR, yR;
   float xB, yB;
   float xO, yO;
-  Ghost(int xR, int yR) {
+  Ghost(int xR, int yR,int xB, int yB,int xO, int yO) {
     this.xR = xR+100;
     this.yR = yR+160;
     
