@@ -6,15 +6,15 @@ class Ghost {
   float xR, yR;
   float xB, yB;
   float xO, yO;
-  Ghost(int x, int y) {
-    this.xR = xR+40;
-    this.yR = yR;
+  Ghost(int xR, int yR) {
+    this.xR = xR+100;
+    this.yR = yR+160;
     
     this.xB = xB+40;
-    this.yB = yB;
+    this.yB = yB+70;
     
-    this.xO = xO+40;
-    this.yO = yO;
+    this.xO = xO+80;
+    this.yO = yO+140;
     
     red =loadImage("red.gif");
     blue =loadImage("blue.gif");
@@ -25,11 +25,11 @@ class Ghost {
     noStroke();
     fill(255, 204, 102);
     image(red,xR,yR);
-    xR=xR+20;
-    yR=random(40,70);
-    if(xR>width-100)
+    xR=xR+10;
+    yR=110;
+    if(xR>width-200)
     {
-      xR=xR-450;
+      xR=xR-300;
       
     }
    
