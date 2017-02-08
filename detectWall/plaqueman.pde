@@ -10,8 +10,10 @@ class plaqueman {
   int score;
   
   ArrayList<Food> pFood = new ArrayList();
+  
     
   ArrayList<Food_yum> yumFood = new ArrayList();
+  ArrayList<Ghost> ghosts = new ArrayList();
   Minim minim1;
  
   AudioPlayer chomp;
@@ -64,9 +66,18 @@ class plaqueman {
     yumFood.add(big8);//
    
   }
+  
+     for (int g=0; g<1; g++)
+    {
+    
+     Ghost ghostR = new Ghost((int(30)),(int)(40));
    
-  minim1=new Minim(this);
-  chomp = minim1.loadFile("Pac-Man Waka Waka Seamless Loop.mp3");
+    ghosts.add(ghostR);//
+    
+   
+  }
+   
+  
   
     
   }
@@ -125,21 +136,43 @@ class plaqueman {
       {
        
         
-      Food_yum Yum = (Food_yum) yumFood.get(j);
-      Yum.display();
-    
-    if (dist(x, y, Yum.x, Yum.y)<radius)
-    {
+        Food_yum Yum = (Food_yum) yumFood.get(j);
+        Yum.display();
       
-      yumFood.remove(j);
-       score=score+5;
-       println(score);
-   
+          if (dist(x, y, Yum.x, Yum.y)<radius)
+          {
+            
+            yumFood.remove(j);
+             score=score+5;
+             println(score);
+         
+             
+          }
+    
+    
+       }
        
-    }
+          for (int g=0;g<ghosts.size();g++)
+      {
+       
+        
+        Ghost ghostR = (Ghost) ghosts.get(g);
+        ghostR.displayGhost();
+      
+          if (dist(x, y, ghostR.x, ghostR.y)<radius)
+          {
+            
+            ghosts.remove(g);
+             score=score-score;
+             println(score);
+             
+             //game over
+         
+             
+          }
     
     
-  }
+       }
     
       textSize(30);
       strokeWeight(3);

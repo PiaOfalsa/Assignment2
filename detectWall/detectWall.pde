@@ -35,7 +35,7 @@ void setup() {
 } 
 void draw() {
  
-  //background(0); 
+  background(0); 
   if(mode==INTRO)
    {
      menu.menuback();
