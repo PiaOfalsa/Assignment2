@@ -2,37 +2,46 @@ PImage red;
 
 class GhostR {
   float xR, yR;
+  int margin;
   float speed;
-  float gravity;
   
+
   GhostR(int xR, int yR) {
-    this.xR = xR+140;
+    this.xR = xR+150;
     this.yR = yR+70;
     
-    speed = 5;
-    gravity = 0.10;
- 
-    red =loadImage("red.gif");
+    speed=10;
     
+    margin=200;
+    
+
+    red =loadImage("red.gif");
   }
   void displayGhostRed() {
-    
+
     noStroke();
     fill(255, 204, 102);
-    image(red,xR,yR);
-  // Add gravity to speed
-    speed = speed + gravity;
-    // Add speed to y location
-    xR = xR + speed;
-    // If square reaches the bottom
-    // Reverse speed
-    if (xR > width) {
-      // Dampening
-      speed = speed * -0.28;
-      xR=width;
-    }
-  }
-  
- 
+    image(red, xR, yR);
+    xR=xR+speed;
     
+    if(xR>width-margin)
+    {
+      speed=-20;
+      
+    }
+     if(xR<160)
+    {
+      speed=20;
+      
+    }
+    
+   
+    
+   
+   
+  
+}
+
+
+
 }

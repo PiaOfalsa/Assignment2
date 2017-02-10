@@ -147,7 +147,7 @@ class plaqueman {
       GhostR ghostR = (GhostR) ghostsR.get(g);
       ghostR.displayGhostRed();
 
-      if (dist(x, y, ghostR.xR, ghostR.yR)<radius)
+      if (dist(x, y, ghostR.xR, ghostR.yR)<radius+10)
       {
 
         ghostsR.remove(g);
